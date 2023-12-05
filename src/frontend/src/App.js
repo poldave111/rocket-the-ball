@@ -6,6 +6,7 @@ import MainPage from './components/MainPage/MainPage';
 import StartForm from './components/StartForm/StartForm';
 import Game from './components/Game/Game';
 import Results from './components/Results/Results';
+import GameResults from './components/GameResults/GameResults';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/start" element={<StartForm />} />
             <Route path="/game" element={<Game />} />
             <Route path="/results" element={<Results />} />
+            <Route path="/gameresults" element={<GameResults />} />
             {/* <Route path="*" element={<NotFound />} /> */}
           </Routes>
         </Provider>

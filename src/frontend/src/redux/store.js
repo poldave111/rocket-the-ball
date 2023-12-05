@@ -1,9 +1,11 @@
 import { createStore, combineReducers } from 'redux';
 import initialState from './initialState';
 import gameReducer from './gameRedux.js';
+import resultsReducer from './resultsRedux';
 
 const subreducers = {
-    game: gameReducer
+    game: gameReducer,
+    results: resultsReducer
 }
 
 const reducer = combineReducers(subreducers);
