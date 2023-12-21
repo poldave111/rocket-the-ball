@@ -13,11 +13,11 @@ const Game = props => {
 
 
     useEffect(() => {
-         if(game.player1p == game.targetScore || game.player2p == game.targetScore) {
+         if(game.player1p === game.targetScore || game.player2p === game.targetScore) {
             dispatch(setGameTime(time));
             navigate('/results');
          }
-        },[game.player1p, game.player2p]);
+        },[game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
 
     const handleClickPoints = (player) => {
         dispatch(setPlayerScore(player));

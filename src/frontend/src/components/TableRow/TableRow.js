@@ -1,12 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router';
-import { resetState } from '../../redux/gameRedux';
-import { setSaveResults } from '../../redux/resultsRedux';
+import React from 'react';
 import { formatTime } from '../../utils/utils';
 
 const TableRow = props => {
-    console.log('props results', props);
     return (
         <tr>
             <td>{props.player1}</td>

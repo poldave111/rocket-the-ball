@@ -16,7 +16,7 @@ const StartForm = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (formData.player1 != "" && formData.player2 != "" && parseInt(formData.targetScore) > 0 ) {
+        if (formData.player1 !== "" && formData.player2 !== "" && parseInt(formData.targetScore) > 0 ) {
             dispatch(setStartData(formData));
             navigate("/game");
         }

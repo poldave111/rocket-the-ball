@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { resetState } from '../../redux/gameRedux';
-import { resetResults, setSaveResults } from '../../redux/resultsRedux';
+import { resetResults } from '../../redux/resultsRedux';
 import TableRow from '../TableRow/TableRow';
 
 const GameResults = props => {
@@ -10,7 +10,9 @@ const GameResults = props => {
     const dispatch = useDispatch(); 
     const results = useSelector(state => state.results);
     console.log('results', results);
+
     const handleClick = () => {
+        dispatch(resetState());
         navigate('/start');
     }
 

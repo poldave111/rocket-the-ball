@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const url = require('url');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -17,7 +18,19 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'frontend/build/index.html'));
+  console.log(path.join(__dirname, 'frontend/build/index.html'));
+
+  // url.format({
+  //   pathname: path.join(__dirname, 'frontend/build/index.html'),
+  //   protocol: 'file:',
+  //   slashes: true,
+  // })
+
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'frontend/build/index.html'),
+    protocol: 'file:',
+    slashes: true,
+  }));
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();
