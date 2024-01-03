@@ -5,7 +5,7 @@ import { resetState } from '../../redux/gameRedux';
 import { resetResults } from '../../redux/resultsRedux';
 import TableRow from '../TableRow/TableRow';
 
-const GameResults = props => {
+const GameResults = () => {
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
     const results = useSelector(state => state.results);

@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const url = require('url');
 
@@ -17,6 +17,7 @@ const createWindow = () => {
     },
   });
 
+
   // and load the index.html of the app.
   console.log(path.join(__dirname, 'frontend/build/index.html'));
 
@@ -31,6 +32,12 @@ const createWindow = () => {
     protocol: 'file:',
     slashes: true,
   }));
+
+  
+  // Handle IPC messages to update the window size
+  ipcMain.on('updateWindowSize', (event, size) => {
+    mainWindow.setSize(size.width, size.height);
+  });
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

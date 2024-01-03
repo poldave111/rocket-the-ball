@@ -4,7 +4,7 @@ import { setPlayerScore, setGameTime } from '../../redux/gameRedux';
 import { useNavigate } from 'react-router';
 import { formatTime } from '../../utils/utils';
 
-const Game = props => {
+const Game = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [time, setTime] = useState(0);
@@ -13,6 +13,7 @@ const Game = props => {
 
 
     useEffect(() => {
+        console.log(game);
          if(game.player1p === game.targetScore || game.player2p === game.targetScore) {
             dispatch(setGameTime(time));
             navigate('/results');

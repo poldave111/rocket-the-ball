@@ -1,5 +1,6 @@
 import React from 'react';
 import { formatTime } from '../../utils/utils';
+import PropTypes from 'prop-types';
 
 const TableRow = props => {
     return (
@@ -12,5 +13,7 @@ const TableRow = props => {
         </tr>
     );
 }
+
+
 
 export default TableRow;
