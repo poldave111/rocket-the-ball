@@ -20,10 +20,20 @@ const Game = () => {
          }
         },[game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
 
+
     const handleClickPoints = (player) => {
-        dispatch(setPlayerScore(player));
+        if(game.player1p === game.targetScore-1 || game.player2p === game.targetScore-1) {
+            while (Math.abs(game.player1p - game.player2p) < 2 || Math.abs(game.player2p - game.player1p) < 2) {
+                console.log('działa while');
+                dispatch(setPlayerScore(player));
+            }
+        } else if (!(game.player1p === game.targetScore || game.player2p === game.targetScore)) {
+            console.log('działa else if');
+            dispatch(setPlayerScore(player));
+        }
     }
 
+    
 
     useEffect(() => {
         if(mounted.current === false) {
@@ -33,6 +43,7 @@ const Game = () => {
             }, 1000);
         }
     }, [mounted])
+
 
 
     return (
