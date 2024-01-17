@@ -4,7 +4,7 @@ import { initialGameState } from "./initialState";
 
 // action 
 const createActionName = action => `app/game/${action}`;
-const SET_START_DATA = createActionName('SET_START_DATA');
+export const SET_START_DATA = createActionName('SET_START_DATA');
 const SET_PLAYER_SCORE = createActionName('SET_PLAYER_SCORE');
 const RESET_STATE = createActionName('RESET_STATE');
 const SET_GAME_TIME = createActionName('SET_TIME');

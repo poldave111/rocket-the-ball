@@ -10,41 +10,33 @@ const Game = () => {
     const [time, setTime] = useState(0);
     const mounted = useRef(false);
     const game = useSelector(state => state.game);
+    const advantage = useSelector(state => state.game.advantage);
 
-
-    useEffect(() => {
-        console.log(game);
-         if(game.player1p === game.targetScore || game.player2p === game.targetScore) {
-            dispatch(setGameTime(time));
-            navigate('/results');
-         }
-        },[game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
-
-
-    const handleClickPoints = (player) => {
-        if(game.player1p === game.targetScore-1 || game.player2p === game.targetScore-1) {
-            while (Math.abs(game.player1p - game.player2p) < 2 || Math.abs(game.player2p - game.player1p) < 2) {
-                console.log('działa while');
-                dispatch(setPlayerScore(player));
-            }
-        } else if (!(game.player1p === game.targetScore || game.player2p === game.targetScore)) {
-            console.log('działa else if');
-            dispatch(setPlayerScore(player));
-        }
+    const gameType = {
+        advantage: (game) => ((game.player1p >= game.targetScore - 1 || game.player2p >= game.targetScore - 1) && (Math.abs(game.player1p - game.player2p) === 2)),
+        normal: (game) => (game.player1p === game.targetScore || game.player2p === game.targetScore),
     }
 
-    
+    useEffect(() => {
+        let isWinner = advantage ? gameType.advantage : gameType.normal; // isWinner będzie referencją do funkcji advantage lub normal
+        if (isWinner(game)) {
+            dispatch(setGameTime(time));
+            navigate('/results');
+        }
+    }, [game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
+
+    const handleClickPoints = (player) => {
+        dispatch(setPlayerScore(player));
+    }
 
     useEffect(() => {
-        if(mounted.current === false) {
+        if (mounted.current === false) {
             mounted.current = true;
             setInterval(() => {
-                setTime(prevTime => prevTime+1);
+                setTime(prevTime => prevTime + 1);
             }, 1000);
         }
     }, [mounted])
-
-
 
     return (
         <>

@@ -6,6 +6,8 @@ import { resetResults } from '../../redux/resultsRedux';
 import TableRow from '../TableRow/TableRow';
 
 const GameResults = () => {
+    const [winCount, setWinCount] = useState({});
+    // how to go through table and count how many times person won the game
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
     const results = useSelector(state => state.results);
