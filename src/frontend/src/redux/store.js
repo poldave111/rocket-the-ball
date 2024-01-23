@@ -3,11 +3,13 @@ import initialState from './initialState';
 import gameReducer from './gameRedux.js';
 import resultsReducer from './resultsRedux';
 import listReducer from './listRedux.js';
+import winnerReducer from './winnerRedux.js';
 
 const subreducers = {
     game: gameReducer,
     results: resultsReducer,
-    playerList: listReducer
+    playerList: listReducer,
+    winner: winnerReducer,
 }
 
 const reducer = combineReducers(subreducers);

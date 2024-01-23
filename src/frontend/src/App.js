@@ -10,6 +10,8 @@ import GameResults from './components/GameResults/GameResults';
 
 function App() {
   return (
+    // tutaj czymś owijającym ma być zielony prostokąt, <div className="App"> ma mieć tylko zielone tło. 
+    // niech zawsze zawartość widoku mieści się w zielonym prostokącie.
     <div className="App">
       <HashRouter>
         <Provider store={store}>

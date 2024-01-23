@@ -16,6 +16,7 @@ const initialState = {
     game : initialGameState,
     results : gameResults,
     playerList : playerList,
+    winner: {}
 }
 
 

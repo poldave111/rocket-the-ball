@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPlayerScore, setGameTime } from '../../redux/gameRedux';
+import { setPlayerAsWinner } from '../../redux/winnerRedux';
 import { useNavigate } from 'react-router';
 import { formatTime } from '../../utils/utils';
 
@@ -12,6 +13,8 @@ const Game = () => {
     const game = useSelector(state => state.game);
     const advantage = useSelector(state => state.game.advantage);
 
+    const {player1p, player2p, player1, player2 } = game;
+
     const gameType = {
         advantage: (game) => ((game.player1p >= game.targetScore - 1 || game.player2p >= game.targetScore - 1) && (Math.abs(game.player1p - game.player2p) === 2)),
         normal: (game) => (game.player1p === game.targetScore || game.player2p === game.targetScore),
@@ -19,8 +22,11 @@ const Game = () => {
 
     useEffect(() => {
         let isWinner = advantage ? gameType.advantage : gameType.normal; // isWinner będzie referencją do funkcji advantage lub normal
+        
         if (isWinner(game)) {
+            const winner = player1p > player2p ? player1 : player2;
             dispatch(setGameTime(time));
+            dispatch(setPlayerAsWinner(winner));
             navigate('/results');
         }
     }, [game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);

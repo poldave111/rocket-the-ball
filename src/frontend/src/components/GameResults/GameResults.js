@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { resetState } from '../../redux/gameRedux';
@@ -7,11 +7,16 @@ import TableRow from '../TableRow/TableRow';
 
 const GameResults = () => {
     const [winCount, setWinCount] = useState({});
+    const [sortedWinners, setSortedWinners] = useState([]);
     // how to go through table and count how many times person won the game
     const navigate = useNavigate(); 
     const dispatch = useDispatch(); 
     const results = useSelector(state => state.results);
-    console.log('results', results);
+    const winners = useSelector(state => state.winner);
+
+    useEffect(() => {
+        setSortedWinners(Object.keys(winners).sort((a, b) => winners[b] - winners[a]));
+    }, [winners]);
 
     const handleClick = () => {
         dispatch(resetState());
@@ -23,9 +28,12 @@ const GameResults = () => {
         navigate('/');
     }
 
+    console.log(winners);
+    console.log(results);
     return (
         <>
             <table>
+                <tbody>
                 <tr>
                     <th>Player 1:</th>
                     <th>Player 1 points:</th>
@@ -33,9 +41,14 @@ const GameResults = () => {
                     <th>Player 2 points:</th>
                     <th>Game time:</th>
                 </tr>
-                {results.map((result) =>
-                    (<TableRow {...result}></TableRow>)
-                )}
+                {results.map((result, index) => (<TableRow key={index} {...result}></TableRow>))}
+                </tbody>
+            </table>
+            <table>
+            {sortedWinners.map((winner) => (  <div>{winner}:{winners[winner]}</div>)
+             
+       
+               )}
             </table>
             <button onClick={handleClick}>Play Again?</button>
             <button onClick={handleReset}>Reset stats</button>
