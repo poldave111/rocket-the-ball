@@ -5,7 +5,7 @@ const MainPage = () => {
    const navigate = useNavigate(); 
    const onStartClick = () => navigate("/start");
   return (
-    <div className={styles["start-page"]}>
+    <div className="formContainer">
       <h1>Welcome to My Game</h1>
       <p>Get ready for an exciting adventure!</p>
       <button onClick={onStartClick}>Start Game</button>

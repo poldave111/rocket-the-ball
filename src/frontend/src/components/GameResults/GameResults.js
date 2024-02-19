@@ -31,7 +31,7 @@ const GameResults = () => {
     console.log(winners);
     console.log(results);
     return (
-        <>
+        <div className="formContainer">
             <table>
                 <tbody>
                 <tr>
@@ -52,7 +52,7 @@ const GameResults = () => {
             </table>
             <button onClick={handleClick}>Play Again?</button>
             <button onClick={handleReset}>Reset stats</button>
-        </>
+        </div>
 
     );
 }

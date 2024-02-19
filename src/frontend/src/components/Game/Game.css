@@ -1,0 +1,37 @@
+.digital-clock {
+    position: relative;
+    width: 200px; /* Adjust the size of the clock */
+    height: 50px; /* Adjust the size of the clock */
+    background-color: #000; /* Black background */
+    border: 2px solid #fff; /* White border */
+    border-radius: 5px;
+    margin: 20px auto;
+  }
+  
+  .clock-numbers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; /* White text color */
+    font-size: 24px; /* Adjust the font size */
+    font-family: 'Arial', sans-serif; /* Adjust the font family */
+    display: flex;
+  }
+  
+  .trapezoid {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 15px 10px 15px; /* Adjust the trapezoid shape */
+    border-color: transparent transparent #fff transparent; /* White color for the trapezoid */
+    margin: 0 5px; /* Adjust the margin between trapezoids */
+  }
+  
+  .text-center {
+    color: #fff; /* White text color */
+  }
+  
+  .mt-3 {
+    margin-top: 15px; /* Adjust the margin-top */
+  }

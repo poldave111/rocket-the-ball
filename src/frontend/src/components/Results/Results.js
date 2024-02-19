@@ -43,13 +43,13 @@ const Results = props => {
     }
 
     return (
-        <>
+        <div className="formContainer">
             <h1>The Winner is {winner}!</h1>
             <h2>Game lasted for: {formatTime(game.time)}</h2>
             <button onClick={handleClick}>Play Again?</button>
             <button onClick={handleClickResults}>Show stats</button>
             <button onClick={handleRematch}>Re-match!</button>
-        </>
+        </div>
     );
 }
 
