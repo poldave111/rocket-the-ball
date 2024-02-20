@@ -15,7 +15,7 @@ const Game = () => {
   const mounted = useRef(false);
   const game = useSelector(state => state.game);
   const advantage = useSelector(state => state.game.advantage);
-
+  console.log('redux advantage', advantage);
   const { player1p, player2p, player1, player2 } = game;
 
   const gameType = {
