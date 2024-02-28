@@ -64,23 +64,23 @@ const StartForm = () => {
             <form onSubmit={handleSubmit} >
                 <Form.Group controlId="player1">
                     <Form.Label>Player 1:</Form.Label>
-                    <Form.Control value={formData.player1} name="player1" onChange={(e) => changeFormValue(e)}></Form.Control> {/* you can use with event (e) or without */}
+                    <Form.Control className="no-drag" value={formData.player1} name="player1" onChange={(e) => changeFormValue(e)}></Form.Control> {/* you can use with event (e) or without */}
                 </Form.Group>
                 <Form.Group controlId="player2">
                     <Form.Label>Player 2:</Form.Label>
-                    <Form.Control value={formData.player2} name="player2" onChange={changeFormValue} />
+                    <Form.Control className="no-drag" value={formData.player2} name="player2" onChange={changeFormValue} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Ending score:</Form.Label>
-                    <Form.Control value={formData.score} name="targetScore" onChange={changeFormValue} type='number' min='1'/>
+                    <Form.Control className="no-drag" value={formData.score} name="targetScore" onChange={changeFormValue} type='number' min='1'/>
                 </Form.Group>
                 {/* <Form.Group controlId="advantage">
                     <Form.Check type="checkbox" label="Advantage game" name="advantage" checked={formData.advantage} onChange={changeFormValue} />
                 </Form.Group> */}
          
               
-                <label>Advantage game:</label><input type="checkbox" name="advantage" value={formData.advantage} onChange={changeFormValue}></input>
-                <Button className="btn btn-danger" type="submit">Play!</Button>
+            <Form.Label>Advantage game:</Form.Label><input className="no-drag" type="checkbox" name="advantage" value={formData.advantage} onChange={changeFormValue}></input>
+                <Button className="no-drag btn btn-danger" type="submit">Play!</Button>
             </form>
             </div>
             <Row className={styles.list} onClick={(e) => addPlayer(e)}>

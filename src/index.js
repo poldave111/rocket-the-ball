@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 
@@ -7,14 +7,21 @@ if (require('electron-squirrel-startup')) {
   app.quit();
 }
 
+//const menu = Menu.setApplicationMenu(null)
+Menu.setApplicationMenu(null)
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
+    width: 400,
     height: 600,
-    frame: false,
-    titleBarStyle: "hidden",
-    transparent: true,
+    //frame: false,
+    //titleBarStyle: "hidden",
+    //transparent: true,
+    titleBarOverlay: {
+      color: '#78c850',
+      height: 32
+    },
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },

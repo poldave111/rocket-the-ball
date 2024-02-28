@@ -8,7 +8,7 @@ const MainPage = () => {
     <div className="formContainer">
       <h1>Welcome to My Game</h1>
       <p>Get ready for an exciting adventure!</p>
-      <button onClick={onStartClick}>Start Game</button>
+      <button className="no-drag" onClick={onStartClick}>Start Game</button>
     </div>
   );
 };

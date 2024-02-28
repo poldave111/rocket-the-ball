@@ -9,6 +9,9 @@ html, body {
 }
 
 .body {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
     margin: 0; 
     padding: 0; 
     color: $color-text-light;
@@ -19,6 +22,10 @@ html, body {
     letter-spacing: 0.5px;
     overflow-y: scroll; 
     min-height: 100vh;
+}
+
+.no-drag {
+  -webkit-app-region: no-drag;
 }
 
 :root {

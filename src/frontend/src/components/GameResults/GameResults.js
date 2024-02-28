@@ -50,8 +50,8 @@ const GameResults = () => {
        
                )}
             </table>
-            <button onClick={handleClick}>Play Again?</button>
-            <button onClick={handleReset}>Reset stats</button>
+            <button className="no-drag" onClick={handleClick}>Play Again?</button>
+            <button className="no-drag" onClick={handleReset}>Reset stats</button>
         </div>
 
     );

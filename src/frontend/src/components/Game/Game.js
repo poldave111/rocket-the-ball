@@ -51,11 +51,11 @@ const Game = () => {
     <div className="formContainer">
       <Row className="justify-content-center">
         <Col className="text-center"><h2>{game.player1}: {game.player1p}</h2></Col>
-        <Col className="text-center mb-2"><button onClick={() => handleClickPoints('player1')}>Add Point</button></Col>
+        <Col className="text-center mb-2"><button className="no-drag" onClick={() => handleClickPoints('player1')}>Add Point</button></Col>
       </Row>
       <Row className="justify-content-center">
         <Col className="text-center"><h2>{game.player2}: {game.player2p}</h2></Col>
-        <Col className="text-center mb-2"><button onClick={() => handleClickPoints('player2')}>Add Point</button></Col>
+        <Col className="text-center mb-2"><button className="no-drag" onClick={() => handleClickPoints('player2')}>Add Point</button></Col>
       </Row>
       <div className="digital-clock">
         <div className="clock-numbers">
