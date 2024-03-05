@@ -1,5 +1,5 @@
 import React from 'react';
-//import styles from './CloseButton.module.scss';
+import styles from './CloseButton.module.scss';
 import { Button } from 'react-bootstrap';
 
 
@@ -12,7 +12,7 @@ const closeWindow = () =>  {
 }
 
   return (
-    <Button className="no-drag" onClick={() => {closeWindow()}}>X</Button>
+    <button className={`${styles.customCloseButton} no-drag`} onClick={() => {closeWindow()}}>X</button>
   );
 };
 

@@ -3,9 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ipcRenderer } from 'electron';
+// const { ipcRenderer } = require("electron");
+const ipc=ipcRenderer; // just for shortened name
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.scss';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+import '@fortawesome/fontawesome-svg-core/styles.css';
+
+library.add(faCheck);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

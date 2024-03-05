@@ -7,14 +7,14 @@ import StartForm from './components/StartForm/StartForm';
 import Game from './components/Game/Game';
 import Results from './components/Results/Results';
 import GameResults from './components/GameResults/GameResults';
-import CloseButton from './components/CloseButton/CloseButton';
+import TitleBar from './components/TitleBar/TitleBar';
 
 function App() {
   return (
     // tutaj czymś owijającym ma być zielony prostokąt, <div className="App"> ma mieć tylko zielone tło. 
     // niech zawsze zawartość widoku mieści się w zielonym prostokącie.
     <div className="App">
-      <CloseButton />
+      <TitleBar />
       <HashRouter>
         <Provider store={store}>
           <Routes>

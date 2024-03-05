@@ -1,1 +1,15 @@
+// StartForm.module.scss
 
+.customCheckbox {
+    .custom-control-input:checked ~ .custom-control-label::before {
+      background-color: #28a745; // Change the color when checked
+    }
+  
+    .custom-control-input:indeterminate ~ .custom-control-label::before {
+      background-color: #28a745; // Change the color when indeterminate (if applicable)
+    }
+  }
+  
+  .checkboxIcon {
+    color: #fff; // Change the color of the checkmark icon
+  }

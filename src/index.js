@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu } = require('electron');
 const path = require('path');
 const url = require('url');
 
+
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -15,13 +16,13 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 400,
     height: 600,
-    //frame: false,
-    //titleBarStyle: "hidden",
+    frame: false,
+    titleBarStyle: "hidden",
     //transparent: true,
-    titleBarOverlay: {
-      color: '#78c850',
-      height: 32
-    },
+    // titleBarOverlay: {
+    //   color: '#78c850',
+    //   height: 32
+    // },
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },

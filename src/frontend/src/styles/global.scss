@@ -40,7 +40,7 @@ html, body {
     // border-radius: 10px;
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
-
+  
   .formContainer {
     max-width: 400px;
     margin: 20px auto;
@@ -54,7 +54,7 @@ html, body {
     }
   
     input {
-      width: 100%;
+      //width: 100%;
       padding: 8px;
       margin-bottom: 15px;
       border: 1px solid var(--dark-green);
@@ -64,7 +64,7 @@ html, body {
     button {
       background-color: var(--tennis-ball-yellow);
       color: var(--dark-green);
-      padding: 10px 20px;
+      //padding: 10px 20px;
       font-size: 18px;
       border: none;
       border-radius: 5px;
@@ -75,4 +75,36 @@ html, body {
         background-color: var(--light-green-hover);
       }
     }
+
+    
+  .buttonMargin {
+    margin: 9px 11px;
+  }
+
+  .smallButton {
+    width: 15px;
+  }
+
+  .mediumButton {
+    width: 100px;
+    padding: 8px 12px;
+  }
+
+  .largeButton {
+    width: 120px;
+    padding: 4px 4px;
+  }
+
+  .textAlignCenter {
+    text-align: center;
+  }
+
+  .displayFlex {
+    display: flex;
+  }
+
+  .marginRightFive {
+    margin-right: 5px;
+  }
+
   }

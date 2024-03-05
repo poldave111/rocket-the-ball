@@ -4,20 +4,21 @@ import { useNavigate } from 'react-router';
 import { resetState, reMatch } from '../../redux/gameRedux';
 import { setSaveResults } from '../../redux/resultsRedux';
 import { formatTime } from '../../utils/utils';
+import styles from './Results.module.scss';
 
 const Results = props => {
     const game = useSelector(state => state.game);
     const [winner, setWinner] = useState(null);
-    const dispatch = useDispatch(); 
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     const mounted = useRef(false);
 
     useEffect(() => {
-        if(mounted.current === false) {
+        if (mounted.current === false) {
             mounted.current = true;
-        dispatch(setSaveResults(game));
+            dispatch(setSaveResults(game));
         }
-    },[mounted, game, dispatch])
+    }, [mounted, game, dispatch])
 
     useEffect(() => {
         if (game.player1p > game.player2p) {
@@ -36,7 +37,7 @@ const Results = props => {
         navigate('/gameresults');
     }
 
-    
+
     const handleRematch = () => {
         dispatch(reMatch());
         navigate('/game')
@@ -44,11 +45,19 @@ const Results = props => {
 
     return (
         <div className="formContainer">
-            <h1>The Winner is {winner}!</h1>
-            <h2>Game lasted for: {formatTime(game.time)}</h2>
-            <button className="no-drag" onClick={handleClick}>Play Again?</button>
-            <button className="no-drag" onClick={handleClickResults}>Show stats</button>
-            <button className="no-drag" onClick={handleRematch}>Re-match!</button>
+            <div className="textAlignCenter">
+                <h1>The Winner is {winner}!</h1>
+                <h2>Game lasted for: {formatTime(game.time)}</h2>
+            </div>
+            <div className="textAlignCenter">
+                <div>
+                    <button className="no-drag buttonMargin largeButton" onClick={handleClick}>Play Again?</button>
+                    <button className="no-drag buttonMargin largeButton" onClick={handleRematch}>Re-match!</button>
+                </div>
+                <div>
+                    <button className="no-drag buttonMargin largeButton" onClick={handleClickResults}>Show stats</button>
+                </div>
+            </div>
         </div>
     );
 }
