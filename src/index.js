@@ -13,20 +13,26 @@ Menu.setApplicationMenu(null)
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 400,
-    height: 600,
-    frame: false,
-    titleBarStyle: "hidden",
-    //transparent: true,
-    // titleBarOverlay: {
-    //   color: '#78c850',
-    //   height: 32
-    // },
-    webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-    },
-  });
+
+  const createWindow = () => {
+    return new BrowserWindow({
+      width: 400,
+      height: 600,
+      frame: false,
+      titleBarStyle: "hidden",
+      //transparent: true,
+      // titleBarOverlay: {
+      //   color: '#78c850',
+      //   height: 32
+      // },
+      webPreferences: {
+        preload: path.join(__dirname, 'preload.js'),
+      },
+    });
+  }; 
+  
+  const mainWindow = createWindow();
+  const sideWindow = createWindow(); 
 
 
   // and load the index.html of the app.
@@ -44,6 +50,11 @@ const createWindow = () => {
     slashes: true,
   }));
 
+  sideWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'frontend/build/index.html'),
+    protocol: 'file:',
+    slashes: true,
+  }));
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();
 };

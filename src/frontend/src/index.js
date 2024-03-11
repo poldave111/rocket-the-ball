@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ipcRenderer } from 'electron';
-// const { ipcRenderer } = require("electron");
-const ipc=ipcRenderer; // just for shortened name
+// import { ipcRenderer } from 'electron';
+// // const { ipcRenderer } = require("electron");
+// const ipc=ipcRenderer; // just for shortened name
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/global.scss';
