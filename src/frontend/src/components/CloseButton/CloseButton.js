@@ -5,10 +5,8 @@ import { Button } from 'react-bootstrap';
 
 const CloseButton = () => {
 
-
-
 const closeWindow = () =>  {
-    window.close(); 
+  window.electronAPI.dispatchClose(); 
 }
 
   return (

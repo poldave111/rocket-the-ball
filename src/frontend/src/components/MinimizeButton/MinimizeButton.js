@@ -7,7 +7,7 @@ const MinimizeButton = () => {
 
 
 const minimizeWindow = () =>  {
-    window.close(); 
+    window.electronAPI.dispatchMinimize(); 
 }
 
   return (

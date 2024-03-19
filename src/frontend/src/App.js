@@ -8,25 +8,46 @@ import Game from './components/Game/Game';
 import Results from './components/Results/Results';
 import GameResults from './components/GameResults/GameResults';
 import TitleBar from './components/TitleBar/TitleBar';
+import TestComponent from './components/TestComponent/TestComponent';
+import LayoutWithTitleBar from './components/LayoutWithTitleBar/LayoutWithTitleBar';
 
 function App() {
   return (
     // tutaj czymś owijającym ma być zielony prostokąt, <div className="App"> ma mieć tylko zielone tło. 
     // niech zawsze zawartość widoku mieści się w zielonym prostokącie.
     <div className="App">
-      <TitleBar />
       <HashRouter>
         <Provider store={store}>
           <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/start" element={<StartForm />} />
-            <Route path="/game" element={<Game />} />
-            <Route path="/results" element={<Results />} />
-            <Route path="/gameresults" element={<GameResults />} />
-            {/* <Route path="*" element={<NotFound />} /> */}
+            <Route path="/main" element={<LayoutWithTitleBar foo={"bar"} />}>
+              <Route path="index" element={<MainPage />} />
+              <Route path="start" element={<StartForm />} />
+              <Route path="game" element={<Game />} />
+              <Route path="results" element={<Results />} />
+              <Route path="gameresults" element={<GameResults />} />
+              {/* <Route path="*" element={<NotFound />} /> */}
+            </Route>
+            <Route path="/side">
+              <Route path="test" element={<TestComponent />} />
+            </Route>
           </Routes>
         </Provider>
       </HashRouter>
+      {/* 
+      <Route path="/" component={App}> */}
+      {/* <IndexRoute component={HomePage} />
+    <Route component={LayoutOne}>
+        <Route path="A" component={pageA} />
+        <Route path="B" component={pageB} />
+    </Route>
+    <Route component={LayoutTwo}>
+        <Route path="C" component={pageC} />
+        etc...
+    </Route>
+    <Route path="*" component={NotFoundPage} /> */}
+      {/* </Route>  */}
+
+
     </div>
   );
 }
