@@ -5,6 +5,7 @@ import store from '../src/redux/store';
 import MainPage from './components/MainPage/MainPage';
 import StartForm from './components/StartForm/StartForm';
 import Game from './components/Game/Game';
+import GamePoints from './components/GamePoints/GamePoints';
 import Results from './components/Results/Results';
 import GameResults from './components/GameResults/GameResults';
 import TitleBar from './components/TitleBar/TitleBar';
@@ -28,7 +29,7 @@ function App() {
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
             <Route path="/side">
-              <Route path="test" element={<TestComponent>Zwykły test</TestComponent>} />
+              <Route path="points" element={<GamePoints />} />
               <Route path="test1" element={<TestComponent>Test1</TestComponent>} /> 
               <Route path="test2" element={<TestComponent>Test2</TestComponent>} /> 
               <Route path="test3" element={<TestComponent>Test3</TestComponent>} /> 

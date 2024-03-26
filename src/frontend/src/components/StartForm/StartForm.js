@@ -38,7 +38,7 @@ const StartForm = () => {
             dispatch(setStartData({ player1, player2, targetScore, advantage }));
             navigate("/main/game");
         }
-        window.electronAPI.dispatchSideView("/side/test1")
+        window.electronAPI.dispatchSideView("/side/points")
     }
 
     const changeFormValue = (e) => {
