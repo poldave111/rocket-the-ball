@@ -20,12 +20,12 @@ const GameResults = () => {
 
     const handleClick = () => {
         dispatch(resetState());
-        navigate('/start');
+        navigate('/main/start');
     }
 
     const handleReset = () => {
         dispatch(resetResults());
-        navigate('/');
+        navigate('/main/index');
     }
 
     console.log(winners);

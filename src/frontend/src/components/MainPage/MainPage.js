@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 const MainPage = () => {
   const navigate = useNavigate();
-  const onStartClick = () => navigate("/start");
+  const onStartClick = () => navigate("/main/start");
   return (
     <div className="formContainer">
       <div className="textAlignCenter">

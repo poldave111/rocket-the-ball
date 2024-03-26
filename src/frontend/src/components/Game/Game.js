@@ -15,7 +15,6 @@ const Game = () => {
   const mounted = useRef(false);
   const game = useSelector(state => state.game);
   const advantage = useSelector(state => state.game.advantage);
-  console.log('redux advantage', advantage);
   const { player1p, player2p, player1, player2 } = game;
 
   const gameType = {
@@ -30,7 +29,7 @@ const Game = () => {
       const winner = player1p > player2p ? player1 : player2;
       dispatch(setGameTime(time));
       dispatch(setPlayerAsWinner(winner));
-      navigate('/results');
+      navigate('/main/results');
     }
   }, [game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
 

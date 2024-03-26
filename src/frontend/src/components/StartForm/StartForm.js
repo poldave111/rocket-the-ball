@@ -36,8 +36,9 @@ const StartForm = () => {
         }
         if (player1 !== "" && player2 !== "" && targetScore > 0 && player1 !== player2) {
             dispatch(setStartData({ player1, player2, targetScore, advantage }));
-            navigate("/game");
+            navigate("/main/game");
         }
+        window.electronAPI.dispatchSideView("/side/test1")
     }
 
     const changeFormValue = (e) => {

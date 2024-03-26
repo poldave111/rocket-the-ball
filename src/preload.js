@@ -5,5 +5,6 @@ const { contextBridge, ipcRenderer } = require('electron/renderer')
 
 contextBridge.exposeInMainWorld('electronAPI', {
   dispatchMinimize: () => ipcRenderer.send('myMinimize'),
-  dispatchClose: () => ipcRenderer.send('myClose')
+  dispatchClose: () => ipcRenderer.send('myClose'),
+  dispatchSideView: (address) => ipcRenderer.send('sideView', address)
 })

@@ -1,6 +1,6 @@
 import './App.css';
 import { Provider } from 'react-redux';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Outlet } from 'react-router-dom';
 import store from '../src/redux/store';
 import MainPage from './components/MainPage/MainPage';
 import StartForm from './components/StartForm/StartForm';
@@ -28,7 +28,10 @@ function App() {
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
             <Route path="/side">
-              <Route path="test" element={<TestComponent />} />
+              <Route path="test" element={<TestComponent>Zwykły test</TestComponent>} />
+              <Route path="test1" element={<TestComponent>Test1</TestComponent>} /> 
+              <Route path="test2" element={<TestComponent>Test2</TestComponent>} /> 
+              <Route path="test3" element={<TestComponent>Test3</TestComponent>} /> 
             </Route>
           </Routes>
         </Provider>

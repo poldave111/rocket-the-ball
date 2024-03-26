@@ -24,6 +24,16 @@ const createWindowS = () => {
     sideWindow.close(); 
   });
 
+  ipcMain.on("sideView", (e, address) => {
+    // console.log("We want to redirect to:", address)
+    sideWindow.loadURL(url.format({
+      pathname: path.join(__dirname, 'frontend/build/index.html'),
+      protocol: 'file:',
+      slashes: true,
+      hash: address
+    }))
+  })
+
   const createWindow = (x = 400,y = 100) => {
     return new BrowserWindow({
       width: 400,
@@ -60,12 +70,14 @@ const createWindowS = () => {
     pathname: path.join(__dirname, 'frontend/build/index.html'),
     protocol: 'file:',
     slashes: true,
+    hash: "/main/index"
   }));
 
   sideWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'frontend/build/index.html'),
     protocol: 'file:',
     slashes: true,
+    hash: "/side/test"
   }));
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();

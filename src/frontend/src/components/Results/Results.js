@@ -30,17 +30,17 @@ const Results = props => {
 
     const handleClick = () => {
         dispatch(resetState());
-        navigate('/start');
+        navigate('/main/start');
     }
 
     const handleClickResults = () => {
-        navigate('/gameresults');
+        navigate('/main/gameresults');
     }
 
 
     const handleRematch = () => {
         dispatch(reMatch());
-        navigate('/game')
+        navigate('/main/game')
     }
 
     return (
