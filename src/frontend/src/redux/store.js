@@ -1,9 +1,10 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import initialState from './initialState';
 import gameReducer from './gameRedux.js';
 import resultsReducer from './resultsRedux';
 import listReducer from './listRedux.js';
 import winnerReducer from './winnerRedux.js';
+import { createStateSyncMiddleware, initMessageListener } from "redux-state-sync";
 
 const subreducers = {
     game: gameReducer,
@@ -14,10 +15,16 @@ const subreducers = {
 
 const reducer = combineReducers(subreducers);
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
     reducer, 
     initialState,
-    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
+    composeEnhancers(
+        applyMiddleware(createStateSyncMiddleware()),
+    )
 );
+
+initMessageListener(store);
 
 export default store;
