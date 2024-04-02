@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 import { resetState } from '../../redux/gameRedux';
 import { resetResults } from '../../redux/resultsRedux';
 import TableRow from '../TableRow/TableRow';
+import Stats from '../Stats/Stats';
 
 const GameResults = () => {
     const [winCount, setWinCount] = useState({});
@@ -32,24 +33,7 @@ const GameResults = () => {
     console.log(results);
     return (
         <div className="formContainer">
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Player 1:</th>
-                        <th>Player 1 points:</th>
-                        <th>Player 2:</th>
-                        <th>Player 2 points:</th>
-                        <th>Game time:</th>
-                    </tr>
-                    {results.map((result, index) => (<TableRow key={index} {...result}></TableRow>))}
-                </tbody>
-            </table>
-            <table>
-                {sortedWinners.map((winner) => (<div>{winner}:{winners[winner]}</div>)
-
-
-                )}
-            </table>
+            <Stats />
             <div className="textAlignCenter">
                 <button className="no-drag largeButton buttonMargin" onClick={handleClick}>Play Again?</button>
                 <button className="no-drag largeButton buttonMargin" onClick={handleReset}>Reset stats</button>

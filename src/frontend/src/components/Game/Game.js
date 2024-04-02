@@ -30,6 +30,9 @@ const Game = () => {
       dispatch(setGameTime(time));
       dispatch(setPlayerAsWinner(winner));
       navigate('/main/results');
+      if(window.electronAPI) {
+        window.electronAPI.dispatchSideView("/side/results")
+      }
     }
   }, [game.player1p, game.player2p, dispatch, game.targetScore, navigate, time]);
 

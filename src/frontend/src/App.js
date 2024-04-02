@@ -11,6 +11,9 @@ import GameResults from './components/GameResults/GameResults';
 import TitleBar from './components/TitleBar/TitleBar';
 import TestComponent from './components/TestComponent/TestComponent';
 import LayoutWithTitleBar from './components/LayoutWithTitleBar/LayoutWithTitleBar';
+import SideResults from './components/SideResults/SideResults';
+import GamePending from './components/GamePending/GamePending';
+import Stats from './components/Stats/Stats';
 
 function App() {
   return (
@@ -29,9 +32,10 @@ function App() {
               {/* <Route path="*" element={<NotFound />} /> */}
             </Route>
             <Route path="/side">
+              <Route index element={<GamePending/>} />
               <Route path="points" element={<GamePoints />} />
-              <Route path="test1" element={<TestComponent>Test1</TestComponent>} /> 
-              <Route path="test2" element={<TestComponent>Test2</TestComponent>} /> 
+              <Route path="results" element={<SideResults/>} /> 
+              <Route path="stats" element={<Stats/>} /> 
               <Route path="test3" element={<TestComponent>Test3</TestComponent>} /> 
             </Route>
           </Routes>

@@ -38,7 +38,9 @@ const StartForm = () => {
             dispatch(setStartData({ player1, player2, targetScore, advantage }));
             navigate("/main/game");
         }
-        window.electronAPI.dispatchSideView("/side/points")
+        if(window.electronAPI) {
+            window.electronAPI.dispatchSideView("/side/points")
+        }
     }
 
     const changeFormValue = (e) => {
@@ -92,7 +94,7 @@ const StartForm = () => {
                             checked={formData.advantage}
                             onChange={changeFormValue}
                             custom
-                            className={`${styles.customCheckbox} `}
+                            className={`no-drag ${styles.customCheckbox} `}
                         />
                     </div>
 
@@ -102,7 +104,9 @@ const StartForm = () => {
                 </form>
             </div>
             <Row className={styles.list} onClick={(e) => addPlayer(e)}>
-                {playerList.map((name) => <div key={name} className="d-flex align-items-center mb-2"><Col>{name}</Col><Col><button className="btn btn-success" data-player={'player1'} data-name={name}>add as p1</button></Col><Col><button className="btn btn-success" data-player={'player2'} data-name={name}>add as p2</button></Col></div>)}
+                {playerList.map((name) => <div key={name} className="d-flex align-items-center mb-2"><Col>{name}</Col>
+                <Col><button className="btn btn-success no-drag" data-player={'player1'} data-name={name}>add as p1</button></Col>
+                <Col><button className="btn btn-success no-drag" data-player={'player2'} data-name={name}>add as p2</button></Col></div>)}
             </Row>
         </div>
     );

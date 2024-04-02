@@ -77,7 +77,7 @@ const createWindowS = () => {
     pathname: path.join(__dirname, 'frontend/build/index.html'),
     protocol: 'file:',
     slashes: true,
-    hash: "/side/test"
+    hash: "/side"
   }));
   // Open the DevTools.
   //mainWindow.webContents.openDevTools();

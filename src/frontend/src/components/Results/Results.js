@@ -3,8 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { resetState, reMatch } from '../../redux/gameRedux';
 import { setSaveResults } from '../../redux/resultsRedux';
-import { formatTime } from '../../utils/utils';
-import styles from './Results.module.scss';
+import SideResults from '../SideResults/SideResults';
+
 
 const Results = props => {
     const game = useSelector(state => state.game);
@@ -31,24 +31,30 @@ const Results = props => {
     const handleClick = () => {
         dispatch(resetState());
         navigate('/main/start');
+        if(window.electronAPI) {
+            window.electronAPI.dispatchSideView("/side")
+        }
     }
 
     const handleClickResults = () => {
         navigate('/main/gameresults');
+        if(window.electronAPI) {
+            window.electronAPI.dispatchSideView("/side/stats")
+        }
     }
 
 
     const handleRematch = () => {
         dispatch(reMatch());
-        navigate('/main/game')
+        navigate('/main/game');
+        if(window.electronAPI) {
+            window.electronAPI.dispatchSideView("/side/points")
+        }
     }
 
     return (
         <div className="formContainer">
-            <div className="textAlignCenter">
-                <h1>The Winner is {winner}!</h1>
-                <h2>Game lasted for: {formatTime(game.time)}</h2>
-            </div>
+            <SideResults />
             <div className="textAlignCenter">
                 <div>
                     <button className="no-drag buttonMargin largeButton" onClick={handleClick}>Play Again?</button>
